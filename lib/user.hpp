@@ -1,3 +1,10 @@
+/*
+ * User class
+ *
+ * Copyright 2014 I.Karbachinsky <igorkarbachinsky@mail.ru>
+ */
+
+
 #ifndef NEWYEAR_ROULETTE_LIB_USER_HPP_
 #define NEWYEAR_ROULETTE_LIB_USER_HPP_
 

@@ -1,5 +1,5 @@
 /*
- * Secret santa generator.
+ * Secret Santa Roulette.
  * This utility gets list of users, shuffles them and for each user generates pair to be gifted.
  * Note: software considers love relations between users :) If some user A loves user B, he won't be able
  * to gift his lover. But be careful. Relations such as Swedish family is not supported yet :)
