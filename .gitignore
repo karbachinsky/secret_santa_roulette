@@ -1,6 +1,13 @@
-# my
+# Idea and my
 .idea
 etc/users.txt
+
+# Cmake and garbage
+CMake*
+cmake_install.cmake
+Makefile
+newyear_roulette
+users/
 
 
 # Compiled Object files
