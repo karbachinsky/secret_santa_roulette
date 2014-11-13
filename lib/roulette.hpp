@@ -28,7 +28,7 @@ const std::string kUsersFilesDir = "users/";
 
 class Roulette {
 public:
-    Roulette(user_pointers_list_t & users) : users_(users)
+    explicit Roulette(user_pointers_list_t & users) : users_(users)
             {}
 
     /**
@@ -116,7 +116,10 @@ void Roulette::gen_gift_relations() {
         } // while found
 
         if (!found) {
-            throw std::runtime_error("We've got some problems. Please try again!");
+            throw std::runtime_error(
+                "We've got some problems. Please check that you have more then 2 persons "
+                "in your file and all the emails are coorect and different and try again!"
+            );
         }
     }
 }
