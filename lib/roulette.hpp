@@ -34,36 +34,34 @@ public:
     /**
     *  Generates gift relations
     */
-    void gen_gift_relations();
+    void GenGiftRelations();
 
     /**
     *  Display gift relations to stdout
     */
-    void display_gift_relations() const;
+    void DisplayGiftRelations() const;
 
     /**
      *  Create directory with mail files for each user
      */
-    void create_mail_files() const;
+    void CreateMailFiles() const;
 private:
     user_pointers_list_t users_;
 };
 
-void Roulette::create_mail_files() const {
-    using namespace std;
-
+void Roulette::CreateMailFiles() const {
     if(!boost::filesystem::create_directory(kUsersFilesDir.c_str())) {
         std::cerr << "Failed to create directory. Maybe it' already exists? Continue running..." << std::endl;
     }
 
     // For each user creating file with his email
     for (auto i = users_.begin(); i != users_.end(); ++i) {
-        const string user_file_name = kUsersFilesDir + (*i)->get_email();
-        ofstream f(user_file_name);
+        const std::string user_file_name = kUsersFilesDir + (*i)->GetEmail();
+        std::ofstream f(user_file_name);
 
         const boost::format mail = boost::format(kMailPattern)
-                % (*i)->get_name()
-                % (*i)->get_user_to_be_gifted().get_name();
+                % (*i)->GetName()
+                % (*i)->GetUserToBeGifted().GetName();
 
         f << mail;
 
@@ -71,18 +69,18 @@ void Roulette::create_mail_files() const {
     }
 }
 
-void Roulette::display_gift_relations() const {
+void Roulette::DisplayGiftRelations() const {
     for (auto i = users_.begin(); i != users_.end(); ++i) {
         std::cout << "User "
-                  << (*i)->get_name()
+                  << (*i)->GetName()
                   << " will give a gift to "
-                  << (*i)->get_user_to_be_gifted().get_name()
+                  << (*i)->GetUserToBeGifted().GetName()
                   << std::endl;
     }
 }
 
 
-void Roulette::gen_gift_relations() {
+void Roulette::GenGiftRelations() {
     // Randomly shuffling all the users
     size_t seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::shuffle(users_.begin(), users_.end(), std::default_random_engine(seed));
@@ -90,7 +88,7 @@ void Roulette::gen_gift_relations() {
 #ifdef DEBUG
     std::cout << "Shuffled: ";
     for (auto i=users_.begin(); i != users_.end(); ++i) {
-        std::cout << (*i)->get_name()  << " " ;
+        std::cout << (*i)->GetName()  << " " ;
     }
     std::cout << std::endl << std::endl;
 #endif
@@ -104,8 +102,8 @@ void Roulette::gen_gift_relations() {
         size_t num_iterations = 0;
         while(!found && num_iterations++ < 2 ) {
             for (auto j = start; j != end; ++j) {
-                if ((*j)->can_be_gifted_by(**i)) {
-                    (*i)->set_user_to_be_gifted(*j);
+                if ((*j)->CanBeGiftedBy(**i)) {
+                    (*i)->SetUserToBeGifted(*j);
                     found = true;
                     break;
                 }

@@ -17,10 +17,10 @@ public:
     /**
     *  Parses input file with clusters of users
     */
-    static user_pointers_list_t parse_file(const std::string & file_name);
+    static user_pointers_list_t ParseFile(const std::string & file_name);
 };
 
-user_pointers_list_t UsersFileParser::parse_file(const std::string & file_name) {
+user_pointers_list_t UsersFileParser::ParseFile(const std::string & file_name) {
     // Getting users from file
     std::ifstream f(file_name);
     std::string tmp_email, tmp_name;
@@ -45,8 +45,8 @@ user_pointers_list_t UsersFileParser::parse_file(const std::string & file_name) 
         std::shared_ptr<User> user_ptr = std::make_shared<User>(user);
 
         if (prev_user) {
-            user_ptr->set_loved(prev_user);
-            prev_user->set_loved(user_ptr);
+            user_ptr->SetLoved(prev_user);
+            prev_user->SetLoved(user_ptr);
         }
 
         users.push_back(user_ptr);

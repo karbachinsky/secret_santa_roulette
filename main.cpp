@@ -6,41 +6,43 @@
  *
  * Usage: ./newyear_roulette users-file
  *
- * Author: I.Karbachinsky <igorkarbachinsky@mail.ru>
+ * Copyright 2014 I.Karbachinsky <igorkarbachinsky@mail.ru>
  */
 
 #include <iostream>
 #include <memory>
 #include <stdexcept>
+#include <string>
 
 #include "lib/user.hpp"
 #include "lib/users_file_parser.hpp"
 #include "lib/roulette.hpp"
 
-using namespace roulette;
-using namespace std;
+
+namespace rou = roulette;
+
 
 int main(int argc, char *argv[]) {
     try {
         if (argc <= 1)
-            throw runtime_error("Specify file with users!");
+            throw std::runtime_error("Specify file with users!");
 
-        string users_file(argv[1]);
-        user_pointers_list_t users;
+        std::string users_file(argv[1]);
+        rou::user_pointers_list_t users;
 
-        users = UsersFileParser::parse_file(users_file);
+        users = rou::UsersFileParser::ParseFile(users_file);
 
         if (users.size() % 2 != 0)
             throw std::runtime_error("We have odd number of users!");
 
-        Roulette roulette(users);
+        rou::Roulette roulette(users);
 
-        roulette.gen_gift_relations();
-        roulette.display_gift_relations();
-        roulette.create_mail_files();
+        roulette.GenGiftRelations();
+        roulette.DisplayGiftRelations();
+        roulette.CreateMailFiles();
     }
-    catch(runtime_error &e) {
-        cerr << e.what() << endl;
+    catch(std::runtime_error &e) {
+        std::cerr << e.what() << std::endl;
         return 1;
     }
 

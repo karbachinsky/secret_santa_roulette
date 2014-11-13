@@ -21,22 +21,22 @@ public:
     /**
     * Checks whether user is already has user to be gifted
     */
-    const bool is_busy() const {
+    const bool IsBusy() const {
         return is_busy_;
     }
 
     /**
     * Set user busy (this user is already gifted by someone)
     */
-    const bool set_busy() const {
+    const bool SetBusy() const {
         is_busy_ = true;
     }
 
     /**
     * Checks if input user can be gifted by this user
     */
-    bool can_be_gifted_by(const User &user) const {
-        if (is_busy())
+    bool CanBeGiftedBy(const User &user) const {
+        if (IsBusy())
             return false;
         if (user == *this)
             return false;
@@ -48,36 +48,36 @@ public:
     /**
     * Updates user to be gifted
     */
-    void set_user_to_be_gifted(const std::shared_ptr<const User> user_ptr) {
+    void SetUserToBeGifted(const std::shared_ptr<const User> user_ptr) {
         user_to_be_gifted_ = user_ptr;
-        user_ptr->set_busy();
+        user_ptr->SetBusy();
     }
 
     /**
     * set love relation for user
     */
-    void set_loved(const std::shared_ptr<const User> user_ptr) {
+    void SetLoved(const std::shared_ptr<const User> user_ptr) {
         loved_user_ = user_ptr;
     }
 
     /**
     * Get user's name
     */
-    const std::string get_name() const {
+    const std::string GetName() const {
         return name_;
     }
 
     /**
     * Get user's email
     */
-    const std::string get_email() const {
+    const std::string GetEmail() const {
         return email_;
     }
 
     /**
     * Get user which will be gifted the gift by current user
     */
-    const User get_user_to_be_gifted() const {
+    const User GetUserToBeGifted() const {
         auto user_ptr = user_to_be_gifted_.lock();
         return *user_ptr;
     }
