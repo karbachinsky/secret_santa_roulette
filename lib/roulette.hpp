@@ -19,6 +19,7 @@
 
 namespace roulette {
 
+// FIXME
 const std::string kMailPattern =
         "Привет, %1%!\n"
         "\n"
