@@ -8,9 +8,10 @@ uninteresting gift relations.
 
 ### Why should i use it?
 There are many online secret santa generators in web, but this one has several features outperforming current solutions:
+
 1. Considering love relations. None of current online generators can do it.
 2. Convenient friends file format. No inputs, no forms. Just one file with one user per line.
-3. Speed. It works very fast even with thousands of users.
+3. Speed. It works very fast even with hundreds of thousands users.
 
 ### How to build?
 1. Download project from github.
@@ -34,7 +35,6 @@ $ make
 ```sh
 ./etc/send_mails.sh users/
 ```
-5. Enjoy!
 
 ### How to change email pattern?
 Unfortunately in this version you'll have to change pattern right in code (See lib/roulette.hpp).
@@ -43,5 +43,5 @@ Unfortunately in this version you'll have to change pattern right in code (See l
 Feel free to write me via email.
 
 ### TODO
-1. Shift from code to pluggable file.
+1. Shift email pattern from code to pluggable file.
 2. Use program_options.
