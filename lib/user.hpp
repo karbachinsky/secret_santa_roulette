@@ -42,12 +42,12 @@ public:
     /**
     * Checks if input user can be gifted by this user
     */
-    bool CanBeGiftedBy(const User &user) const {
+    bool CanBeGiftedBy(const std::shared_ptr<const User> user_ptr) const {
         if (IsBusy())
             return false;
-        if (user == *this)
+        if (*user_ptr == *this)
             return false;
-        if (loved_user_ != nullptr && user == *loved_user_)
+        if (loved_user_ != nullptr && user_ptr == loved_user_)
             return false;
         return true;
     }
@@ -61,10 +61,25 @@ public:
     }
 
     /**
-    * set love relation for user
+    * Get user which will be gifted the gift by current user
+    */
+    const std::shared_ptr<const User> GetUserToBeGifted() const {
+        auto user_ptr = user_to_be_gifted_.lock();
+        return user_ptr;
+    }
+
+    /**
+    * Set love relation for user
     */
     void SetLoved(const std::shared_ptr<const User> user_ptr) {
         loved_user_ = user_ptr;
+    }
+
+    /**
+    * Get love realtion user
+    */
+    const std::shared_ptr<const User> GetLoved() const {
+        return loved_user_;
     }
 
     /**
@@ -79,14 +94,6 @@ public:
     */
     const std::string GetEmail() const {
         return email_;
-    }
-
-    /**
-    * Get user which will be gifted the gift by current user
-    */
-    const User GetUserToBeGifted() const {
-        auto user_ptr = user_to_be_gifted_.lock();
-        return *user_ptr;
     }
 
     bool operator==(const User &other) const {

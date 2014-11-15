@@ -5,6 +5,13 @@ This utility allows to generate gift relations for secret santa game.
 Each of your friend will have a person to gift. Roulette allows to markdown love relations between friends in special file to prevent
 uninteresting gift relations.
 
+
+### Why should i use it?
+There are many online secret santa generators in web, but this one has several features outperforming current solutions:
+1. Considering love relations. None of current online generators can do it.
+2. Convenient friends file format. No inputs, no forms. Just one file with one user per line.
+3. Speed. It works very fast even with thousands of users.
+
 ### How to build?
 1. Download project from github.
 2. To build the utility you have to check whether *cmake* and *boost* library are installed.
