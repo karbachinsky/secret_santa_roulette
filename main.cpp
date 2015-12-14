@@ -32,8 +32,8 @@ int main(int argc, char *argv[]) {
 
         users = rou::UsersFileParser::ParseFile(users_file);
 
-        if (users.size() % 2 != 0)
-            throw std::runtime_error("We have odd number of users!");
+        //if (users.size() % 2 != 0)
+        //    throw std::runtime_error("We have odd number of users!");
 
         rou::Roulette roulette(users);
 

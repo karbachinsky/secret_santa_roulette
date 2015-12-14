@@ -38,3 +38,7 @@ users/
 *.exe
 *.out
 *.app
+
+*.swp
+*.swo
+users.txt

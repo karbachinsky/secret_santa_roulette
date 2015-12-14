@@ -60,7 +60,7 @@ private:
 
 void Roulette::CreateMailFiles() const {
     if(!boost::filesystem::create_directory(kUsersFilesDir.c_str())) {
-        std::cerr << "Failed to create directory. Maybe it' already exists? Continue running..." << std::endl;
+        std::cerr << "Failed to create directory" << kUsersFilesDir.c_str() << ". Maybe it already exists? Continue running..." << std::endl;
     }
 
     // For each user creating file with his email
