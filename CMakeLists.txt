@@ -1,9 +1,8 @@
 cmake_minimum_required(VERSION 2.8.4)
 project(newyear_roulette)
+set(CMAKE_CXX_STANDARD 11)
 
 set(BOOST_ROOT "/usr/local/boost")
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g")
 
 set(SOURCE_FILES main.cpp)
 

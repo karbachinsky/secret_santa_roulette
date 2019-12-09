@@ -1,7 +1,7 @@
 /*
  * Roulette class
  *
- * Copyright 2014 I.Karbachinsky <igorkarbachinsky@mail.ru>
+ * Copyright 2014-2019 I.Karbachinsky <igorkarbachinsky@mail.ru>
  */
 
 #ifndef NEWYEAR_ROULETTE_LIB_ROULETTE_HPP_
@@ -12,6 +12,7 @@
 #include <chrono>
 #include <algorithm>
 #include <iterator>
+#include <random>
 
 #include "boost/format.hpp"
 #include "boost/filesystem.hpp"
@@ -23,11 +24,10 @@ namespace roulette {
 
 // FIXME
 const std::string kMailPattern =
-        "Привет, %1%!\n"
+        "Привет, %1% \u263A\n"
         "\n"
-        "Тебя приветствует минский дед мороз!\n"
-        "В этот знаменательный день тебе повезло стать секретным "
-        "санта-клаусом и осчастливить твоего друга по имени %2%.\n"
+        "Это дед мороз!\n"
+        "Ты станешь лучшим санта-клаусом, ведь твой друг — %2%!"
         "\n"
         "Сделай его праздник незабываемым!\n"
         "\n"

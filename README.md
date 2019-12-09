@@ -1,13 +1,13 @@
 # Secret Santa Roulette
 
-Going to have a new year party with your friends? Secret Santa utility is that what you need.
-This utility allows to generate gift relations for secret santa game.
+Going to have a new year party with your friends? Secret Santa utility is what you need.
+It generates gift relations for secret santa game.
 Each of your friend will have a person to gift. Roulette allows to markdown love relations between friends in special file to prevent
 uninteresting gift relations.
 
 
-### Why should i use it?
-There are many online secret santa generators in web, but this one has several features outperforming current solutions:
+### Why should you use it?
+There are many online secret santa web generators, but this one has several features outperforming other solutions:
 
 1. Considering love relations. None of current online generators can do it.
 2. Convenient friends file format. No inputs, no forms. Just one file with one user per line.
